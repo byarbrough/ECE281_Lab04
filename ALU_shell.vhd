@@ -2,8 +2,8 @@
 --
 -- Title       : ALU
 -- Design      : ALU
--- Author      : usafa
--- Company     : usafa
+-- Author      : usafa C16 Brian Yarbrough
+-- Company     : usafa ECE 281
 --
 -------------------------------------------------------------------------------
 --
