@@ -58,10 +58,30 @@ begin
 --  7     : LD
 aluswitch: process (Accumulator, Data, OpSel)
         begin
-		-- enter your if/then/else or case statements here
+		case OpSel is
+			when "000" => --AND
+				Result <= Data and Accumulator;
+			when "001" => --NEG
+				Result <= std_logic_vector(UNSIGNED(not Data) + 1);
+			when "010" => --NOT
+				Result <= not Data;
+			when "011" => --ROR
+				Result(3) <= Accumulator(0);
+				Result(2) <= Accumulator(1);
+				Result(1) <= Accumulator(2);
+				Result(1) <= Accumulator(3);
+			when "100" => --OR
+				Result <= Data or Accumulator;
+			when "101" => --IN
+				Result <= Data;
+			when "110" => --ADD
+				Result <= Data + Accumulator;
+			when "111" => --LD
+				Result <= Accumulator;
+			when others =>
+				Result <= Data;
+			end case;
 		end process;
-
--- OR, enter your conditional signal statement here
 
 end ALU;
 
