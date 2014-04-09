@@ -80,7 +80,7 @@ aluswitch: process (Accumulator, Data, OpSel)
 			when "110" => --ADD
 				Result <= Data + Accumulator;
 			when "111" => --LD
-				Result <= Accumulator;
+				Result <= Data;
 			when others =>
 				Result <= "0000";
 			end case;

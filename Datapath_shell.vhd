@@ -54,25 +54,24 @@ end Datapath;
 architecture Datapath of Datapath is
 
 	-- Copy the declaration for your ALU here
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	COMPONENT ALU
+	PORT (
+		OpSel : in STD_LOGIC_VECTOR(2 downto 0);
+		 Data : in STD_LOGIC_VECTOR(3 downto 0);
+		 Accumulator : in STD_LOGIC_VECTOR(3 downto 0);
+		 Result : out STD_LOGIC_VECTOR(3 downto 0)
+		 );
+	END COMPONENT;
 	
-
-
+	COMPONENT line_register
+	PORT(
+		clk : IN std_logic;
+		clear : IN std_logic;
+		load : IN std_logic;
+		dataIn : IN std_logic_vector(3 downto 0);          
+		dataOut : OUT std_logic_vector(3 downto 0)
+		);
+	END COMPONENT;
 	
 	-- Internal signals for connecting the Datapath registers.  Note the differing length 
 	-- based on content
@@ -106,61 +105,23 @@ begin
 	-- asynchronous Reset_L line and clocked data input.  Which control signal also determines
 	-- when data is loaded?  What are the inputs and outputs from the register?
 	
-	process(          )
-  	begin				 
-	  
-
-
-
-
-
-
-  	end process;   
-	  	
-	  	
-	-- Complete the code to implement an Memory Address Register (Hi).  Use a standard register with an 
-	-- asynchronous Reset_L line and clocked data input.  Which control signal also determines
-	-- when data is loaded?	 What are the inputs and outputs from the register?
-
-	process(          )
-  	begin				 
-	  
-
-
-
-
-
-
-  	end process;       
-
-	-- Complete the code to implement an Memory Address Register (Lo).  Use a standard register with an 
-	-- asynchronous Reset_L line and clocked data input.  Which control signal also determines
-	-- when data is loaded?	 What are the inputs and outputs from the register?
-	
-	process(          )
-  	begin				 
-	  
-
-
-
-
-
-
-  	end process;   
+	InstructionRegister : line_register PORT MAP(
+		clk => Clock,
+		clear => Reset_L<m 
 	  
 	-- Complete the code to implement an Address Selector (multiplexer) which determines between two data sources
 	-- (which two?) based on the AddrSel line. Be careful - the process sensitivity list has 4 signals!
 	
-	process(          )
-  	begin				 
-	  
-
-
-
-
-
-
-  	end process;   
+--	process(          )
+--  	begin				 
+--	  
+--
+--
+--
+--
+--
+--
+--  	end process;   
 		
 	
 	  		
@@ -174,27 +135,27 @@ begin
 	-- Complete the code to implement an Accumulator.  Use a standard register with an 
 	-- asynchronous Reset_L line and clocked data input.  Which control signal also determines
 	-- when data is loaded?	   What are the inputs and outputs from the register?
-	process(          )
-  	begin				 
-	  
-
-
-
-
-
-
-  	end process;     
+--	process(          )
+--  	begin				 
+--	  
+--
+--
+--
+--
+--
+--
+--  	end process;     
 	  
 	-- Complete the code to implement a tri-state buffer which places the Accumulator data on the 
 	-- Data Bus when enabled and goes to High Z the rest of the time	
 	-- Note: use "Z" just like a bit.  If you want to set a signal to  High Z, you'd say mySignal <= 'Z';
-	Data <=          when             else         ;
+--	Data <=          when             else         ;
 	  
-  	-- Complete the code to implement the Datapath status signals --
-   	AlessZero <=   			--Uses MSB as a sign bit
-  	AeqZero <= 
-
-			   
-			   
+--  	-- Complete the code to implement the Datapath status signals --
+--   	AlessZero <=   			--Uses MSB as a sign bit
+--  	AeqZero <= 
+--
+--			   
+--			   
 end Datapath;
 
