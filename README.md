@@ -12,6 +12,10 @@ The results of this simulation are below.
 
 The process of ensuring that this simulation meets expectations is rather redundant, and not exactly fun. For each differnt test, every 20 ms, I had to go through and manually make sure that the result is correct. The table below contains a partial list of some of the tests.
 
+Time (ms) | Opperation | Expected | Correct?
+|--------|-------------|--------|---------
+50|AND|0000|Y
+
 
 
 ###Design
