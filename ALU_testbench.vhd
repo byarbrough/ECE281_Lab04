@@ -1,11 +1,11 @@
 --------------------------------------------------------------------------------
--- Company: 
--- Engineer:
+-- Company: 		Capt Trimble, ECE 281
+-- Engineer:		Given shell, any other edits made by Brian Yarbrough
 --
 -- Create Date:   11:40:37 07/10/2012
--- Design Name:   
+-- Design Name:   Testbench for Arithmetic Logic Unit
 -- Module Name:   C:/My_Designs/ECE281_Xilinx14/PRISM_test/ALU_testbench.vhd
--- Project Name:  PRISM_test
+-- Project Name:  PRISM_test - Lab 04
 -- Target Device:  
 -- Tool versions:  
 -- Description:   

@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 --
--- Title       : ALU
+-- Title       : ALU Top File
 -- Design      : ALU
 -- Author      : usafa C16 Brian Yarbrough
 -- Company     : usafa ECE 281
@@ -14,7 +14,10 @@
 --
 -------------------------------------------------------------------------------
 --
--- Description : 
+-- Description : Provides instructions for an Arithmetic Logic Unit. This unit is capable of performing eight different commands.
+--						It accepts data in and can interact with the accumulator.
+--						When part of a microcomputer it is linked with the Datapath.
+--						Combined, these are two important components of a microcomuter.
 --
 -------------------------------------------------------------------------------
 
@@ -79,7 +82,7 @@ aluswitch: process (Accumulator, Data, OpSel)
 			when "111" => --LD
 				Result <= Accumulator;
 			when others =>
-				Result <= Data;
+				Result <= "0000";
 			end case;
 		end process;
 
