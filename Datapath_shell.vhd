@@ -105,27 +105,37 @@ begin
 	-- asynchronous Reset_L line and clocked data input.  Which control signal also determines
 	-- when data is loaded?  What are the inputs and outputs from the register?
 	
-	InstructionRegister : line_register PORT MAP(
+	Inst_line_register: line_register PORT MAP(
 		clk => Clock,
-		clear => Reset_L<m 
+		clear => Reset_L,
+		load => IRLd,
+		dataIn => Data,
+		dataOut => IR
+	);
 	  
 	-- Complete the code to implement an Address Selector (multiplexer) which determines between two data sources
 	-- (which two?) based on the AddrSel line. Be careful - the process sensitivity list has 4 signals!
 	
---	process(          )
---  	begin				 
---	  
---
---
---
---
---
---
---  	end process;   
+	process( AddrSel, Clock, PC, )
+  	begin				 
+	  
+
+
+
+
+
+
+  	end process;   
 		
 	
 	  		
 	-- Instantiate and connect the ALU  which was written in a separate file
+		Inst_ALU: ALU PORT MAP(
+		OpSel => OpSel,
+		Data => Data,
+		Accumulator => AccLd,
+		Result => ALU_Result
+	);
 	
 
 
@@ -135,16 +145,14 @@ begin
 	-- Complete the code to implement an Accumulator.  Use a standard register with an 
 	-- asynchronous Reset_L line and clocked data input.  Which control signal also determines
 	-- when data is loaded?	   What are the inputs and outputs from the register?
---	process(          )
---  	begin				 
---	  
---
---
---
---
---
---
---  	end process;     
+    	Inst_Accumulator: line_register PORT MAP(
+		clk => Clock,
+		clear => Reset_L,
+		load => AccLd,
+		dataIn => ALU_Result,
+		dataOut => Accumulator
+	);
+	  
 	  
 	-- Complete the code to implement a tri-state buffer which places the Accumulator data on the 
 	-- Data Bus when enabled and goes to High Z the rest of the time	
