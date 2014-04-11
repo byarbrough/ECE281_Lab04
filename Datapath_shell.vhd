@@ -116,36 +116,28 @@ begin
 	-- Complete the code to implement an Address Selector (multiplexer) which determines between two data sources
 	-- (which two?) based on the AddrSel line. Be careful - the process sensitivity list has 4 signals!
 	
-	process( AddrSel, Clock, PC, )
+	process( AddrSel, PC, MARHi, MARLo )
   	begin				 
-	  
-
-
-
-
-
-
+	  --PC is selected
+	  if (AddrSel = '0') then
+			Addr <= PC;
+		else -- MARs are selected
+			Addr <= MARHi & MARLo; --concatinate
+		end if;
   	end process;   
-		
-	
 	  		
 	-- Instantiate and connect the ALU  which was written in a separate file
 		Inst_ALU: ALU PORT MAP(
-		OpSel => OpSel,
-		Data => Data,
-		Accumulator => AccLd,
-		Result => ALU_Result
-	);
-	
-
-
-
-
+			OpSel => OpSel,
+			Data => Data,
+			Accumulator => Accumulator,
+			Result => ALU_Result
+		);
 	
 	-- Complete the code to implement an Accumulator.  Use a standard register with an 
 	-- asynchronous Reset_L line and clocked data input.  Which control signal also determines
 	-- when data is loaded?	   What are the inputs and outputs from the register?
-    	Inst_Accumulator: line_register PORT MAP(
+    Inst_Accumulator: line_register PORT MAP(
 		clk => Clock,
 		clear => Reset_L,
 		load => AccLd,
