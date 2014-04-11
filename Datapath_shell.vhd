@@ -149,13 +149,13 @@ begin
 	-- Complete the code to implement a tri-state buffer which places the Accumulator data on the 
 	-- Data Bus when enabled and goes to High Z the rest of the time	
 	-- Note: use "Z" just like a bit.  If you want to set a signal to  High Z, you'd say mySignal <= 'Z';
---	Data <=          when             else         ;
+	Data <=  Accumulator when EnAccBuffer = '1' else "ZZZZ";
 	  
---  	-- Complete the code to implement the Datapath status signals --
---   	AlessZero <=   			--Uses MSB as a sign bit
---  	AeqZero <= 
---
---			   
---			   
+  	-- Complete the code to implement the Datapath status signals --
+   	AlessZero <= '1' when Accumulator(3) = '1' else '0';  			--Uses MSB as a sign bit
+		AeqZero <= '1' when Accumulator = "0000" else '0';
+
+			   
+			   
 end Datapath;
 
