@@ -117,7 +117,7 @@ begin
 	-- (which two?) based on the AddrSel line. Be careful - the process sensitivity list has 4 signals!
 	
 	process( AddrSel, PC, Clock, Reset_L)
-  	begin				 
+  	begin			
 	  if (AddrSel = '1') then
 			Addr <= MARHi & MARLo; --concatinate
 		else		
@@ -142,6 +142,23 @@ begin
 		load => AccLd,
 		dataIn => ALU_Result,
 		dataOut => Accumulator
+	);
+	
+	--MAR registers
+	MARHi_Reg: line_register PORT MAP(
+		clk => Clock,
+		clear => Reset_L,
+		load => MARHiLd,
+		dataIn => Data,
+		dataOut => MARHi
+	);
+	
+	MARLo_Reg: line_register PORT MAP(
+		clk => Clock,
+		clear => Reset_L,
+		load => MARLoLd,
+		dataIn => Data,
+		dataOut => MARLo
 	);
 	  
 	  
