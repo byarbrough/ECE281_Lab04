@@ -44,7 +44,7 @@ begin
 	process(clear, clk)
   	begin
 	--reset was pushed
-		if (clear = '1') then
+		if (clear = '0') then
 			dataOut <= "0000";
 		--synchronous 
 		elsif (rising_edge(clk)) then

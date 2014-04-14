@@ -116,13 +116,12 @@ begin
 	-- Complete the code to implement an Address Selector (multiplexer) which determines between two data sources
 	-- (which two?) based on the AddrSel line. Be careful - the process sensitivity list has 4 signals!
 	
-	process( AddrSel, PC, MARHi, MARLo )
+	process( AddrSel, PC, Clock, Reset_L)
   	begin				 
-	  --PC is selected
-	  if (AddrSel = '0') then
-			Addr <= PC;
-		else -- MARs are selected
+	  if (AddrSel = '1') then
 			Addr <= MARHi & MARLo; --concatinate
+		else		
+			Addr <= PC;
 		end if;
   	end process;   
 	  		
