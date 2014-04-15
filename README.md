@@ -23,6 +23,7 @@ The process of ensuring that this simulation meets expectations is rather redund
 Time (ms) | Opperation | Expected | Correct?
 |--------|-------------|--------|---------
 50|AND|0000|Y
+150|NOT|1100|Y
 
 
 ####Datapath
