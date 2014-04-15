@@ -18,5 +18,14 @@ Time (ms) | Opperation | Expected | Correct?
 50|AND|0000|Y
 
 
+The first Datapath simulation did not go very well.
+
+![alt text](https://github.com/byarbrough/ECE281_Lab04/blob/master/Datapath_simulation.PNG?raw=true "Datapath error")
+
+The problem was with the address bus. There was no pattern to it, it simply alternated between UUUUs and XXXXs. After some extensive debugging I finally realized that I forgot to implement the registers for MARHi and MARLo. Once I did that and added the waveform file, this is what I got.
+
+![alt text](https://github.com/byarbrough/ECE281_Lab04/blob/master/Waveform_simulation.PNG?raw=true "Waveform sim")
+
+
 
 ###Reverse Engineering
