@@ -70,9 +70,9 @@ aluswitch: process (Accumulator, Data, OpSel)
 				Result <= not Data;
 			when "011" => --ROR
 				Result(3) <= Accumulator(0);
-				Result(2) <= Accumulator(1);
+				Result(2) <= Accumulator(3);
 				Result(1) <= Accumulator(2);
-				Result(1) <= Accumulator(3);
+				Result(0) <= Accumulator(1);
 			when "100" => --OR
 				Result <= Data or Accumulator;
 			when "101" => --IN
