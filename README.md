@@ -34,6 +34,6 @@ The problem was with the address bus. There was no pattern to it; it simply alte
 
 ![alt text](https://github.com/byarbrough/ECE281_Lab04/blob/master/Waveform_simulation.PNG?raw=true "Waveform sim")
 
-
+The first 50 ns of my simulation match that given in the Lab 4 Instructions, which is a good sign! From looking over the simulation, it appears that it everything works correctly.
 
 ###Reverse Engineering
