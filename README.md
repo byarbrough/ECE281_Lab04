@@ -5,6 +5,9 @@ PRISM Datapath
 
 ###Design
 
+####ALU
+The first step in the design process was creating a functional arithmetic logic unit (ALU). The block diagram for an ALU is simple. 
+
 These simulation results show that the ALU works. This is evident by looking at the value of _Result_ and comparing it to the expected value from the inputs in the testbench. There was no issue getting this part of the program to work; it was simply a case statement within the predefined process. The trigger and the different states were already defines, so there was not even a need to make a new type.
 
 The results of this simulation are below.
@@ -18,6 +21,8 @@ Time (ms) | Opperation | Expected | Correct?
 50|AND|0000|Y
 
 
+
+####Datapath
 The first Datapath simulation did not go very well.
 
 ![alt text](https://github.com/byarbrough/ECE281_Lab04/blob/master/Datapath_simulation.PNG?raw=true "Datapath error")
