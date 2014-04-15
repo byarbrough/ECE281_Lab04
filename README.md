@@ -16,7 +16,7 @@ The results of the ALU simulation are below.
 
 ![alt text](https://github.com/byarbrough/ECE281_Lab04/blob/master/ALU_simulation.PNG?raw=true "ALU testbench")
 
-These simulation results show that the ALU works. This is evident by looking at the value of _Result_ and comparing it to the expected value from the inputs in the testbench. There was no issue getting this part of the program to work (aside from a typo in ROR). The trigger and the different states were already defined in the shell, so there was not even a need to make a new type.
+These simulation results show that the ALU works. This is evident by looking at the value of _Result_ and comparing it to the expected value from the inputs in the testbench. There was no issue getting this part of the program to work (aside from a typo in ROR, 0 instead of a 1). The trigger and the different states were already defined in the shell, so there was not even a need to make a new type.
 
 The process of ensuring that this simulation meets expectations is rather redundant, and not exactly fun. For each differnt test I had to go through and manually make sure that the result is correct. The table below contains a partial list of some of the tests.
 
@@ -37,3 +37,13 @@ The problem was with the address bus. There was no pattern to it; it simply alte
 The first 50 ns of my simulation match that given in the Lab 4 Instructions, which is a good sign! From looking over the simulation, it appears that it everything works correctly.
 
 ###Reverse Engineering
+
+Ok, I'm not even saying this for the IP points: This was super cool. The fact that I could go through the simulation and make a PRISM program that did the same thing proves that we actually programed a microcomputer! The only thing it is missing is memory.
+
+Here is a more zoomed in snapshot of the segment I analyzed and wrote to PRISM.
+![alt text](https://github.com/byarbrough/ECE281_Lab04/blob/master/zoomed_simulation.PNG?raw=true "Zoomed Sim")
+My main strategy was to look at the PC to see when the computer was changing addresses, and then look at the address or data busses (as well as other signals). This led me to dervie this PRISM program (also included in the REPO).
+
+![alt text](https://github.com/byarbrough/ECE281_Lab04/blob/master/PRISM_shot.PNG?raw=true "PRISM Program")
+
+When the program runs, it outputs 'D' to port 3, just like the VHDL sim!
